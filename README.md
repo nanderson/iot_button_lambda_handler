@@ -11,21 +11,32 @@ don't do anything special with these events other than sending a Slack notificat
 Installation is somewhat manual at this point:
 
 1. edit makefile to use proper AWS account number
+
 2. copy config.json.example to config.json and edit (see below for encrypted Slack URL)
-3. > make init
-4. > make deploy-new
-5. configure IoT button
-6. set event source on lambda to the proper IoT button
+
+3. Make and deploy:
+```shell
+  make init
+  make deploy-new
+```
+
+4. configure IoT button (see below)
+
+5. set event source on lambda to the proper IoT button
 
 ### Configure config.json
 
-> cp config.json.example config.json
+```shell
+  cp config.json.example config.json
+```
 
 configure the Slack channel, emoji, username etc to your liking
 
 make a KMS key in the proper region, I called mine 'DefaultKey'
 
-> aws kms encrypt --key-id alias/DefaultKey --plaintext "hooks.slack.com/services/....... (whatever your Slack webhook URL is)"
+```shell
+  aws kms encrypt --key-id alias/DefaultKey --plaintext "hooks.slack.com/services/....... (whatever your Slack webhook URL is)"
+```
 
 take that CiphertextBlob and drop it in config.json
 
