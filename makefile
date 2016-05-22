@@ -5,6 +5,7 @@ LIBS_PATH=lib/python2.7/site-packages/
 AWS_FUNCTION_DESCRIPTION="An AWS Lambda function that reacts to the press of an IoT Button"
 AWS_FUNCTION_NAME=iot_button
 AWS_HANDLER_NAME=iot_button.lambda_handler
+# edit the following line and replace with your account number
 AWS_ROLE=arn:aws:iam::656363001641:role/lambda_basic_execution
 AWS_HANDLER=iot_button.lambda_handler
 AWS_REGION=us-west-2
