@@ -1,0 +1,6 @@
+{
+	"slack_webhook_url_encrypted": "<encrypted Slack webhook url here, minus the 'https://' though",
+	"slack_channel": "notifications",
+	"slack_username": "aws_notifications",
+	"slack_emoji": ":aws:"
+}
