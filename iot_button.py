@@ -11,16 +11,16 @@ logger.info('loading function')
 
 def lambda_handler(event, context):
 	logger.info('loading lambda_handler')
-	print(lambda_helper_lib.event_to_str(event))
+	logger.info(lambda_helper_lib.event_to_str(event))
 
 	if lambda_helper_lib.is_real_event(event):
 		if event['clickType'] == 'SINGLE':
-			notifications_lib.send_to_slack('IoT Button - Single Click\n(voltage:' + event['batteryVoltage'] + ')')
+			notifications_lib.send_to_slack('*IoT Button - Single Click*\n(voltage:' + event['batteryVoltage'] + ')')
 		elif event['clickType'] == 'DOUBLE':
-			notifications_lib.send_to_slack('IoT Button - Double Click\n(voltage:' + event['batteryVoltage'] + ')')
+			notifications_lib.send_to_slack('*IoT Button - Double Click*\n(voltage:' + event['batteryVoltage'] + ')\n\n' + lambda_helper_lib.event_to_str(event))
 		elif event['clickType'] == 'LONG':
-			notifications_lib.send_to_slack('IoT Button - Long Click\n(voltage:' + event['batteryVoltage'] + ')')
-			print(lambda_helper_lib.context_to_str(context))
+			notifications_lib.send_to_slack('*IoT Button - Long Click*\n(voltage:' + event['batteryVoltage'] + ')\n\n' + lambda_helper_lib.event_to_str(event) + '\n' + lambda_helper_lib.context_to_str(context))
+			#print(lambda_helper_lib.context_to_str(context))
 	else:
 		notifications_lib.send_to_slack('IoT Button - test event')
 
