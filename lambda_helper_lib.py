@@ -1,7 +1,8 @@
 
 
 def context_to_str(context):
-	context_str = 'Context:\n'
+	context_str = '_Context:_\n'
+	context_str += '```'
 	context_str += 'context.function_name:' + context.function_name + '\n'
 	context_str += 'context.function_version:' + context.function_version + '\n'
 	context_str += 'context.invoked_function_arn:' + context.invoked_function_arn + '\n'
@@ -28,12 +29,14 @@ def context_to_str(context):
 		context_str += 'context.client_context:--None--\n'
 	
 	context_str += 'context.get_remaining_time_in_millis:' + str(context.get_remaining_time_in_millis()) + '\n'
+	context_str += '```'
 
 	return context_str
 
 
 def event_to_str(event):
-	event_str = 'Event:\n'
+	event_str = '_Event:_\n'
+	event_str += '```'
 	try:
 		event_str += 'batteryVoltage:' + event['batteryVoltage'] + '\n'
 		event_str += 'serialNumber:' + event['serialNumber'] + '\n'
@@ -41,6 +44,7 @@ def event_to_str(event):
 	except KeyError:
 		event_str += '--test event--\n'
 
+	event_str += '```'
 	return event_str
 
 
