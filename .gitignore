@@ -11,3 +11,4 @@ lib
 *.zip
 .DS_Store*
 config.json
+.idea

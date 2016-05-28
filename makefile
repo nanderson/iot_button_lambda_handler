@@ -11,7 +11,12 @@ AWS_HANDLER=iot_button.lambda_handler
 AWS_REGION=us-west-2
 
 
-all: package
+help:
+	echo "package - generate zip archive of the code and library dependencies"
+	echo "deploy - "
+	echo "deploy-new - "
+	echo "invoke - "
+	echo "init - "
 
 
 package:
@@ -50,5 +55,8 @@ invoke:
 	cat /tmp/$(AWS_FUNCTION_NAME)_output.txt
 	echo
 
+test:
+	python -m unittest test.FunctionalTest
+
 init:
-	virtualenv .; source bin/activate; pip install requests
+	virtualenv .; source bin/activate; pip install requests boto3 unittest2
