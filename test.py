@@ -20,7 +20,6 @@ class FunctionalTest(unittest.TestCase):
         self.assertEqual(iot_button.lambda_handler(event, context), 'success')
 
 
-
 class TestingCognitoIdentity:
     foo = "foo"
     bar = "bar"
