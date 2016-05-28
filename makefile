@@ -59,4 +59,4 @@ test:
 	python -m unittest test.FunctionalTest
 
 init:
-	virtualenv .; source bin/activate; pip install requests boto3 unittest2
+	virtualenv .; source bin/activate; pip install requests boto3
